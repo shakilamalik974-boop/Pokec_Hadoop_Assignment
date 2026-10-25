@@ -1,0 +1,44 @@
+﻿
+DATA SPLIT
+Training records: 70
+Validation records: 15
+Testing records: 15
+
+VALIDATION RESULTS
+            Model  Validation_MAE  Validation_RMSE  Validation_R2
+Linear Regression       17.479436        20.546122       0.143487
+    Random Forest        7.927933        11.545326       0.729550
+
+Selected model: Random Forest
+
+FINAL TEST RESULTS
+Test MAE: 10.602
+Test RMSE: 15.535
+Test R2: 0.629
+
+VALID PROFILE ROWS: 100
+VALID AGE VALUES: 77
+
+AVERAGE COMPLETION BY GENDER
+gender
+0    42.268293
+1    46.186441
+Name: completion_percentage, dtype: float64
+
+AVERAGE COMPLETION BY AGE GROUP
+                mean  count
+age_group                  
+Under 20   54.307692     13
+20-24      48.423077     52
+25-29      42.909091     11
+30+        22.000000      1
+
+CLUSTER SUMMARY
+         users  average_completion  average_age  average_registration_days
+cluster                                                                   
+0           31           65.645161    20.645161                1553.463747
+1           31           23.064516    22.709677                1665.793347
+2           15           64.533333    23.666667                2211.466806
+Silhouette score: 0.278
+
+Analysis complete. Check the output folder for CSV files and plots.

@@ -1,0 +1,40 @@
+services:
+  namenode:
+    image: apache/hadoop:3
+    container_name: pokec-namenode
+    hostname: namenode
+    user: "0:0"
+    environment:
+      ENSURE_NAMENODE_DIR: /tmp/hadoop-root/dfs/name
+      CORE-SITE.XML_fs.defaultFS: hdfs://namenode:9000
+      HDFS-SITE.XML_dfs.namenode.name.dir: /tmp/hadoop-root/dfs/name
+      HDFS-SITE.XML_dfs.replication: "1"
+      # JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
+      HADOOP_HOME: /opt/hadoop
+    command: ["hdfs", "namenode"]
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode-data:/tmp/hadoop-root/dfs/name
+
+  datanode:
+    image: apache/hadoop:3
+    container_name: pokec-datanode
+    hostname: datanode
+    user: "0:0"
+    environment:
+      CORE-SITE.XML_fs.defaultFS: hdfs://namenode:9000
+      HDFS-SITE.XML_dfs.datanode.data.dir: /tmp/hadoop-root/dfs/data
+      HDFS-SITE.XML_dfs.replication: "1"
+      # JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
+      HADOOP_HOME: /opt/hadoop
+    command: ["hdfs", "datanode"]
+    depends_on:
+      - namenode
+    volumes:
+      - datanode-data:/tmp/hadoop-root/dfs/data
+
+volumes:
+  namenode-data:
+  datanode-data:

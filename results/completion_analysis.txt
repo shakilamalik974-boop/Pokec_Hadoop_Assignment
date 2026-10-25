@@ -1,0 +1,4 @@
+﻿Records analyzed: 100	
+Minimum completion: 12.00	
+Maximum completion: 84.00	
+Average completion: 44.58	

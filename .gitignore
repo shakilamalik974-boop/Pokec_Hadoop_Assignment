@@ -1,0 +1,4 @@
+data/
+*.rar
+__pycache__/
+*.pyc

@@ -1,0 +1,3 @@
+﻿Cluster 0: users=26, average_age=22.35, average_completion=18.73	
+Cluster 1: users=16, average_age=22.25, average_completion=50.50	
+Cluster 2: users=35, average_age=21.77, average_completion=69.23	
